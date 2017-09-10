@@ -10,6 +10,7 @@ public class ServiceConfig {
     @Value("${id}")
     int id;
 
+    //test1
     @Value("${name}")
     String name;
 
