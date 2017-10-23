@@ -1,16 +1,18 @@
 package com.teststudy.springbootstudy;
 
+import org.junit.Assert;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.RestTemplate;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
 public class SpringbootstudyApplicationTests {
 
 	@Test
-	public void contextLoads() {
+	public void restTemplateTest() {
+		RestTemplate r = new RestTemplate();
+		ResponseEntity resp = r.getForEntity("https://jsonplaceholder.typicode.com/posts", String.class);
+		Assert.assertEquals(resp.getStatusCode(), HttpStatus.OK);
 	}
 
 }
